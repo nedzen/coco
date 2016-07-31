@@ -1,132 +1,11 @@
-@import 'variables'
-// @import 'mixins'
-@import 'mxn'
-@import 'normalize'
-@import 'typography'
-@import 'buttons'
+@import 'reboot'
+
+
+// The main stylesheet contains only
+// the components used in the website.
+
 
 // +debug(*)
-
-// --------
-
-// Generic
-html
-	font-size: 111%
-	+box-sizing(border-box)
-
-*, *:before, *:after
-	+box-sizing(inherit)
-
-html, body
-	height: 100%
-
-// disable the silly stretching on desktops
-@media screen and (min-width: $screen-sm)
-	html
-		overflow: hidden	
-	body
-		overflow: auto
-
-body
-	+baseFS
-	+baseLH
-	position: relative
-	min-height: 100%
-	color: $dark
-	font-family: $base-font-family
-	-webkit-font-smoothing: antialiased
-	-moz-osx-font-smoothing: grayscale
-	background: $gray-light
-
-img
-	display: block
-	max-width: 100%
-
-li
-	list-style-type: none
-
-ul, dl, dt, dd, li
-	margin: 0
-	padding: 0
-
-fieldset
-	border: 0
-
-hr
-	display: block
-	height: 0
-	border: 0
-	visibility: hidden
-
-
-// Typography ---------
-h1, h2, h3, .lead
-	font-family: serif
-	font-weight: 600
-
-.lead
-	font-weight: normal
-	+grTitleSize
-
-.xtest
-	color: red
-
-p
-	margin-top: $baseFS
-	margin-bottom: $baseFS
-
-h1
-	+gr-H1
-	margin-top: $gr-H1
-	margin-bottom: 0
-
-h2
-	+gr-H2
-	margin-top: $gr-H2
-	margin-bottom: 0
-h3
-	+gr-H3
-	margin-top: $gr-H3
-	margin-bottom: 0
-
-p.small
-	+smalltext
-	// max-width: 200px
-
-
-pre
-	tab-size: 2
-	width: auto
-	position: relative
-	overflow-x:  scroll
-	// height: 50px
-	white-space: pre
-	white-space: -moz-pre !important
-	white-space: -pre
-	white-space: -o-pre
-	word-wrap: break-all
-	display: block
-	padding: $boxpad/2
-	background-color: $gray-01
-
-+scrollbars(.5em, $gray)
-
-code
-	background: $gray-01
-	padding: 1px 5px
-	margin-left: 5px 
-	margin-right: 5px
-
-a
-	text-decoration: none
-
-
-
-// Scafolding
-body > main
-	margin: 60px auto 0
-	max-width: $ContentWidth * 1px
-	padding: $boxpad/2
 
 nav.navbar
 	display: block
@@ -150,21 +29,10 @@ ul.nav-menu
 		color: $gray
 
 
-ul.list-inline
-	li
-		display: inline-block
-
 
 #__bs_notify__
 	// gets rid of the annoying box
 	display: none!important
-
-
-
-
-
-
-
 
 
 
@@ -221,4 +89,3 @@ $button-height: 30px
 		+button-style(transparent, $green, white, transparent, darken($green, 5%), white, transparent, $yellow, $gray)
 	&.yellow
 		+button-style(transparent, $yellow, white, transparent, darken($yellow, 5%), white, transparent, $yellow, $gray)
-

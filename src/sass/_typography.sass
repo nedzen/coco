@@ -45,19 +45,19 @@ $baseFS: (calc-baseFS() / calc-baseFS()) + rem
 
 
 // Title Size --------------------------------------
-@function calcTitleSize()
+@function calc-BigTitle()
 	$foo: calc-baseFS() * pow($phi, 2)
 	@return round($foo)
 
-$grTitleSize: (calcTitleSize() / calc-baseFS()) + rem
+$BigTitle: (calc-BigTitle() / calc-baseFS()) + rem
 
-=grTitleSize()
-	font-size: (calcTitleSize() / calc-baseFS()) + rem
-	line-height: calcTitleSize() / $yoo / 2
-	// font-size: calcTitleSize() + px
+=BigTitle()
+	font-size: (calc-BigTitle() / calc-baseFS()) + rem
+	line-height: calc-BigTitle() / $yoo / 2
+	// font-size: calc-BigTitle() + px
 	
 	@if ($debugmode == on)
-		+showunit($grTitleSize)
+		+showunit($BigTitle)
 
 
 // H1 Size -----------------------------------

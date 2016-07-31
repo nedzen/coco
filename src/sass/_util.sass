@@ -1,5 +1,7 @@
+
+// Handling svg icons
 svg
-	+stretch
+	+position(absolute, 0px, 0px, 0px, 0px)
 	+size(100%)
 
 // sizing mixin
@@ -15,11 +17,12 @@ svg
 	&.sq20
 		+svg(20px)
 
-// truncates nasty text
-=truncate()
-	white-space: nowrap
-	overflow: hidden
-	text-overflow: ellipsis
++debug('*')
+// inline list
+
+ul.list-inline
+	li
+		display: inline-block
 
 // ------------------------------------------
 // notice info | a way to inform about different messages

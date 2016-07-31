@@ -1,42 +1,40 @@
 // Position mixins
 =position($pos:null, $a:0, $b:0, $c:null, $d:null)
-	@if ($pos)
+	@if $pos
 		position: $pos
 	@else
 		position: absolute
-
 	top: $a
 	right: $b
-
-	@if ($c)
+	@if $c
 		bottom: $c
-	@if ($d)
+	@if $d
 		left: $d
 
 // Quickly create button styles
 =button-style($border-color: null, $bg-color: null, $color: null, $hover-border-color: null, $hover-bg-color: null, $hover-color: null, $active-border-color: null, $active-bg-color: null, $active-color: null)
-	@if ($border-color)
+	@if $border-color
 		border-color: $border-color
-	@if ($bg-color)
+	@if $bg-color
 		background-color: $bg-color
-	@if ($color)
+	@if $color
 		color: $color
 	
 	&:hover
-		@if ($hover-border-color)
+		@if $hover-border-color
 			border-color: $hover-border-color
-		@if ($hover-bg-color)
+		@if $hover-bg-color
 			background-color: $hover-bg-color
-		@if ($hover-color)
+		@if $hover-color
 			color: $hover-color
 		// text-decoration: none
 	// removed focus state because it causes the button to stay selected
 	&:active
-		@if ($active-border-color)
+		@if $active-border-color
 			border-color: $active-border-color
-		@if ($active-bg-color)
+		@if $active-bg-color
 			background-color: $active-bg-color
-		@if ($active-color)
+		@if $active-color
 			color: $active-color
 		//box-shadow: inset 0 1px 4px rgba(0,0,0,0.1)
 
@@ -143,10 +141,8 @@ $loops : 0
 	&:after
 		content: " "
 		display: table
-		&:after
-			clear: both
-
-
+	&:after
+		clear: both
 
 
 
@@ -181,8 +177,72 @@ $loops : 0
 
 
 // User select
-@mixin user-select($select)
+=user-select($select)
 	-webkit-user-select: $select
 	-moz-user-select: $select
 	-ms-user-select: $select
 	user-select: $select
+
+
+=selection
+	::-moz-selection
+		@content
+	::selection
+		@content
+
+// truncates nasty text
+=truncate()
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+
+
+
+
+=display-flex
+	display: -webkit-box
+	display: -webkit-flex
+	display: -moz-box
+	display: -moz-flex
+	display: -ms-flexbox
+	display: flex
+
+// this mixin is generating grids
+=makesomeresponsivecolumns($n:null, $flex:null)
+	$cols: $n
+	.col
+		position: relative
+		overflow: hidden
+		@if $flex
+			// background: yellow // do nothing
+		@elseif
+			width: 100%
+			float: left
+		
+		// work in progress
+		// @if $flex==flex
+		// 	background: red
+		// 	+display-flex
+		
+		@media screen and (min-width: $screen-xs)
+			@for $i from 1 through $cols - 1
+				&.xs-w#{$i}
+					width: ($i * 100/$cols) * 1%
+		
+		@media screen and (min-width: $screen-sm)
+			@for $i from 1 through $cols - 1
+				&.sm-w#{$i}
+					width: ($i * 100/$cols) * 1%
+		
+		@media screen and (min-width: $screen-md)
+			@for $i from 1 through $cols - 1
+				&.w#{$i}
+					width: ($i * 100/$cols) * 1%
+
+
+
+
+
+=size($width, $height: $width)
+	width: $width
+	height: $height
