@@ -1,0 +1,212 @@
+@import 'variables'
+@import 'mixins'
+@import 'mxn'
+@import 'normalize'
+@import 'typography'
+@import 'buttons'
+
+// +debug(*)
+
+body
+	+grFontSize
+	+grBaseLineHeight
+// --------
+// Generic
+html
+	font-size: 111%
+	+box-sizing(border-box)
+
+*, *:before, *:after
+	+box-sizing(inherit)
+
+html, body
+	height: 100%
+
+// disable the silly stretching on desktops
+@media screen and (min-width: $screen-sm)
+	html
+		overflow: hidden	
+	body
+		overflow: auto
+
+body
+	position: relative
+	min-height: 100%
+	color: $dark
+	font-family: $base-font-family
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	background: $gray-light
+
+img
+	display: block
+	max-width: 100%
+
+li
+	list-style-type: none
+
+ul, dl, dt, dd, li
+	margin: 0
+	padding: 0
+
+fieldset
+	border: 0
+
+hr
+	display: block
+	height: 0
+	border: 0
+	visibility: hidden
+
+
+// Typography ---------
+h1, h2, h3, .lead
+	font-family: serif
+	font-weight: 600
+
+.lead
+	font-weight: normal
+	+grTitleSize
+
+h1
+	+gr-H1
+h2
+	+gr-H2
+h3
+	+gr-H3
+
+p.small
+	+smalltext
+	// max-width: 200px
+
+p.body
+	+grFontSize
+
+pre
+	background: $gray-light
+	tab-size: 2
+	width: auto
+	position: relative
+	// overflow:  scroll
+	// height: 50px
+	white-space: pre-wrap
+	white-space: -moz-pre-wrap !important
+	white-space: -pre-wrap
+	white-space: -o-pre-wrap
+	word-wrap: break-word
+
+code
+	background: $gray-01
+	padding: 1px 5px
+	margin-left: 5px 
+	margin-right: 5px
+
+a
+	text-decoration: none
+
+
+
+// Scafolding
+body > main
+	margin: 100px auto 0
+	max-width: $ContentWidth * 1px
+	padding: $boxpad/2
+
+
+
+
+nav.navbar
+	display: block
+	background: $gray
+	+position(fixed, 0px, 0px, auto, 0px)
+	+debug()
+	// +debug('*')
+
+ul.nav-menu
+	display: block
+	float: right
+	li
+		display: block
+		float: left
+	a
+		display: block
+		padding: $boxpad/4 $boxpad/2
+		background-color: $gray
+		color: $blue
+
+
+ul.list-inline
+	li
+		display: inline-block
+
+
+
+#__bs_notify__
+	// gets rid of the annoying box
+	display: none!important
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Buttons ------------------------------------------
+$button-padding: 10px
+$button-font-size: $smalltext
+$button-border-width: 0
+$button-border-radius: 2px
+$button-height: 30px
+
+.btn
+	// general
+	+transition(100ms)
+	+user-select(none)
+	margin: 0
+	position: relative
+	bottom: 0px
+	display: inline-block
+	// vertical-align: top
+	text-overflow: ellipsis
+	text-decoration: none
+	text-align: center
+	cursor: pointer
+	outline: none
+	// structure
+	padding: 0 $button-padding
+	min-width: ($button-padding * 3) + $button-font-size
+	min-height: $button-height
+	border-width: $button-border-width
+	border-style: solid
+	border-radius: $button-border-radius
+	
+	// type
+	font-size: $button-font-size
+	line-height: $button-height
+	
+	@media screen and (max-width: $screen-md)
+		// this is only needed for mobile devices
+		&:after
+			position: absolute
+			top: -6px
+			right: -6px
+			bottom: -6px
+			left: -6px
+			content: ''
+	
+	// Default style
+	+button-style(transparent, $gray, white, transparent, $blue, white, transparent, $yellow, $gray)
+
+	&.orange
+		+button-style(transparent, $orange, white, transparent, darken($orange, 5%), white, transparent, $yellow, $gray)
+	&.green
+		+button-style(transparent, $green, white, transparent, darken($green, 5%), white, transparent, $yellow, $gray)
+	&.yellow
+		+button-style(transparent, $yellow, white, transparent, darken($yellow, 5%), white, transparent, $yellow, $gray)
+

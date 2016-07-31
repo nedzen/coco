@@ -1,0 +1,55 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width")
+		title this that
+		link(rel="stylesheet" type="text/css" href="css/coco.css")
+		//- link(href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400,400i,700" rel="stylesheet")
+		//- Jquery
+		//- script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+		//- Latest compiled JavaScript
+	body
+		nav.navbar
+			ul.nav-menu
+				li: a(href="#") one
+				li: a(href="#") two
+				li: a(href="#") three
+
+		main
+			h1.lead Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+
+			p.body Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis, ut venenatis elit vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer facilisis, augue non sollicitudin finibus, risus tellus vulputate lorem, et ultrices mauris velit a massa. Nunc ex ex, hendrerit nec dignissim sed, aliquam at ex. Mauris sapien risus, facilisis vitae cursus ut, dictum et tellus. Nunc lacinia gravida accumsan. Etiam sit amet diam felis. Nam pellentesque neque in dolor commodo consequat. Donec convallis, quam quis vulputate suscipit, arcu nunc tempus justo, dapibus dignissim velit tortor eget tellus. Proin varius elit quis fringilla pretium.
+			
+			h1 And this is a heading one
+
+			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis, ut venenatis elit vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer facilisis, augue non sollicitudin finibus, risus tellus vulputate lorem, et ultrices mauris velit a massa. Nunc ex ex, hendrerit nec dignissim sed, aliquam at ex. Mauris sapien risus, facilisis vitae cursus ut, dictum et tellus. Nunc lacinia gravida accumsan. Etiam sit amet diam felis. Nam pellentesque neque in dolor commodo consequat. Donec convallis, quam quis vulputate suscipit, arcu nunc tempus justo, dapibus dignissim velit tortor eget tellus. Proin varius elit quis fringilla pretium.
+			
+			h2 And this is a heading two
+			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis, ut venenatis elit vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			
+			h3 And this is a heading three
+
+			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis, ut venenatis elit vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+			p.small Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent <b>sollicitudin</b> nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat <strong>magna cum <em>et dic</em></strong> vel nibh sagittis, ut venenatis elit vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+			
+			h2 Buttons
+			p To make a button use the class <code>.btn</code> on <code>a</code> elements and on <code>button</code> elements.
+			p
+				button.btn default button
+			
+			p There are several predefined styles available for styling buttons. To create a new style use <code>+button-style</code> mixin within <code>.btn</code> which passes the required styling properties.
+			pre
+				| &.orange
+				|	+button-style(transparent, $orange, white, transparent, darken($orange, 5%), white, transparent, $yellow, $gray)
+
+			ul.list-inline
+				li: a.btn(href="#") default
+				li: a.btn.orange(href="#") orange
+				li: a.btn.green(href="#") green
+				//- input(type="submit" value="submit") // someone should take care of this to
+			
+			p
+				span.this
+				span.loops

@@ -1,0 +1,62 @@
+svg
+	+stretch
+	+size(100%)
+
+// sizing mixin
+=svg($w, $wr:50, $hr:50)
+	+size($w, 0)
+	padding-top: ($hr / $wr) * $w // h / w
+
+// Icon svg
+.icon
+	position: relative // this is required
+	+svg(34px, 34, 29) // size rw rh
+	// setting widths and bounding boxes for svg icons of different size
+	&.sq20
+		+svg(20px)
+
+// truncates nasty text
+=truncate()
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+
+// ------------------------------------------
+// notice info | a way to inform about different messages
+// ------------------------------------------
+// use like this : 
+// <div class="notice [info, alert, success. error]"> text inside
+.notice
+	padding: $boxpad/2
+	border-radius: 2px
+	position: relative
+	margin-bottom: $boxpad
+
+	// .close
+	// 	position: absolute
+	// 	top: 0
+	// 	right: 0
+	// 	cursor: pointer
+	// 	opacity: .7
+	// 	&:hover
+	// 		opacity: 1
+
+	// &.success
+	// 	background-color: $c04
+
+	// &.info
+	// 	background-color: lighten($c02, 15%)
+		// color: darken($c02, 90%)
+		// &:before
+			// content: $ionicon-var-ios-information
+
+	// &.alert
+	// 	color: $base-gray
+	// 	background-color: $c05
+	// 	&:before
+			// content: $ionicon-var-alert-circled
+
+	// &.error
+	// 	background-color: $c03
+	// 	&:before
+	// 		content: $ionicon-var-android-cancel

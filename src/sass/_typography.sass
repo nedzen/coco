@@ -1,0 +1,139 @@
+// Golden Ratio Typography
+// ======================================================================
+// Golden Ratio Math
+// Many thanks to Chris Pearson's scary math skills http://t.co/KoeUoEWrNS
+// and his Golden Ratio Calculator http://t.co/6MyXPtRrlu
+// @author Greg Rickaby
+// ======================================================================
+
+// 1.61803398874989 or "The Golden Ratio"
+$phi: (1 + sqrt(5)) / 2
+//1.27201964951 | sqrt($phi) because resolves to some shit value
+$sqrtphi: 1.272
+$xoo: 1 / (2 * $phi)
+// Line-height
+$yoo: sqrt($ContentWidth) / $phi
+$zoo: $phi - $xoo * (1 - ($ContentWidth / $yoo))
+$debugmode: on
+
+// Default Font Size -----------------------------------
+// Calculated font size based on $ContentWidth.
+// ---------------------------------------------
+@function calcFontSize()
+	$foo: sqrt($ContentWidth) / $phi
+	@return round($foo)
+
+
+=grFontSize()
+	font-size: (calcFontSize() / calcFontSize()) + rem
+	// font-size: calcFontSize() + px
+	// line-height: calcFontSize() / $yoo
+	@if ($debugmode == on)
+		+showunit($grFontSize)
+
+$grFontSize: (calcFontSize() / calcFontSize()) + rem
+
+
+// Default Line Height----------------------------------
+@function calcBaseLineHeight()
+	$foobar: sqrt($ContentWidth) / $phi
+	$foo: calcFontSize() * ($phi - $xoo * (1 - ($ContentWidth / pow(calcFontSize() * $phi, 2))))
+	$fo: $foo / $foobar
+	@return $fo
+
+=grBaseLineHeight()
+	line-height: calcBaseLineHeight()
+
+
+// Title Size --------------------------------------
+@function calcTitleSize()
+	$foo: calcFontSize() * pow($phi, 2)
+	@return round($foo)
+
+$grTitleSize: (calcTitleSize() / calcFontSize()) + rem
+
+=grTitleSize()
+	// font-size: calcTitleSize() + px
+	font-size: (calcTitleSize() / calcFontSize()) + rem
+	line-height: calcTitleSize() / $yoo / 2
+	
+	@if ($debugmode == on)
+		+showunit($grTitleSize)
+
+
+// H1 Size -----------------------------------
+@function calc-H1()
+	$foo: calcFontSize() * $phi
+	@return round($foo)
+
+$gr-H1: calc-H1() / calcFontSize() + rem
+
+=gr-H1()
+	font-size: calc-H1() / calcFontSize() + rem
+	// font-size: calc-H1() + px
+	// line-height: calc-H1() / $yoo
+	@if ($debugmode == on)
+		+showunit($gr-H1)
+
+
+
+// Sub-headline Size -----------------------------------
+// Caclulated sub-headline size based on $ContentWidth.
+// -----------------------------------------------------
+@function calc-H2()
+	$foo: calcFontSize() * $sqrtphi
+	@return round($foo)
+
+$gr-H2: (calc-H2() / calcFontSize()) + rem
+
+=gr-H2()
+	// font-size: calc-H2() + px
+	font-size: (calc-H2() / calcFontSize()) + rem
+	// line-height: calc-H2() / $yoo
+	@if ($debugmode == on)
+		+showunit($gr-H2)
+
+
+// Sub-headline Size -----------------------------------
+// Caclulated sub-headline size based on $ContentWidth.
+// -----------------------------------------------------
+@function calc-H3()
+	$foo: calcFontSize() + $sqrtphi
+	@return round($foo)
+
+$gr-H3: (calc-H3() / calcFontSize()) + rem
+
+=gr-H3()
+	// font-size: calc-H3() + px
+	font-size: (calc-H3() / calcFontSize()) + rem
+	// line-height: calc-H3() / $yoo
+	//	 +showunit($gr-H3)
+
+
+
+
+// Secondary (small) Text -------------------------------
+@function calcSecondaryText()
+	$foo: calcFontSize() * (1 / $sqrtphi)
+	@return round($foo)
+
+
+$smalltext: (calcSecondaryText() / calcFontSize()) + rem
+
+=smalltext()
+	// font-size: calcSecondaryText() + px
+	font-size: (calcSecondaryText() / calcFontSize()) + rem
+	// line-height: calcSecondaryText() / $yoo
+	@if ($debugmode == on)
+		+showunit($smalltext)
+	
+
+// Custom Line Height -----------------------------------
+@function calcCustomLineHeight($target)
+	$foobar: sqrt($ContentWidth) / $phi
+	$foo: $target / $foobar
+	@return $foo
+
+=grCustomLineHeight($target)
+	line-height: calcCustomLineHeight($target)
+
