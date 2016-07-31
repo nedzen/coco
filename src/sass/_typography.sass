@@ -8,54 +8,53 @@
 
 // 1.61803398874989 or "The Golden Ratio"
 $phi: (1 + sqrt(5)) / 2
-//1.27201964951 | sqrt($phi) because resolves to some shit value
+//1.27201964951 | sqrt($phi) because it resolves to some shit value
 $sqrtphi: 1.272
 $xoo: 1 / (2 * $phi)
 // Line-height
 $yoo: sqrt($ContentWidth) / $phi
 $zoo: $phi - $xoo * (1 - ($ContentWidth / $yoo))
-$debugmode: on
 
 // Default Font Size -----------------------------------
 // Calculated font size based on $ContentWidth.
 // ---------------------------------------------
-@function calcFontSize()
+@function calc-baseFS()
 	$foo: sqrt($ContentWidth) / $phi
 	@return round($foo)
 
 
-=grFontSize()
-	font-size: (calcFontSize() / calcFontSize()) + rem
-	// font-size: calcFontSize() + px
-	// line-height: calcFontSize() / $yoo
+=baseFS()
+	font-size: (calc-baseFS() / calc-baseFS()) + rem
+	// font-size: calc-baseFS() + px
+	// line-height: calc-baseFS() / $yoo
 	@if ($debugmode == on)
-		+showunit($grFontSize)
+		+showunit($baseFS)
 
-$grFontSize: (calcFontSize() / calcFontSize()) + rem
+$baseFS: (calc-baseFS() / calc-baseFS()) + rem
 
 
 // Default Line Height----------------------------------
-@function calcBaseLineHeight()
+@function calc-baseLH()
 	$foobar: sqrt($ContentWidth) / $phi
-	$foo: calcFontSize() * ($phi - $xoo * (1 - ($ContentWidth / pow(calcFontSize() * $phi, 2))))
+	$foo: calc-baseFS() * ($phi - $xoo * (1 - ($ContentWidth / pow(calc-baseFS() * $phi, 2))))
 	$fo: $foo / $foobar
 	@return $fo
 
-=grBaseLineHeight()
-	line-height: calcBaseLineHeight()
+=baseLH()
+	line-height: calc-baseLH()
 
 
 // Title Size --------------------------------------
 @function calcTitleSize()
-	$foo: calcFontSize() * pow($phi, 2)
+	$foo: calc-baseFS() * pow($phi, 2)
 	@return round($foo)
 
-$grTitleSize: (calcTitleSize() / calcFontSize()) + rem
+$grTitleSize: (calcTitleSize() / calc-baseFS()) + rem
 
 =grTitleSize()
-	// font-size: calcTitleSize() + px
-	font-size: (calcTitleSize() / calcFontSize()) + rem
+	font-size: (calcTitleSize() / calc-baseFS()) + rem
 	line-height: calcTitleSize() / $yoo / 2
+	// font-size: calcTitleSize() + px
 	
 	@if ($debugmode == on)
 		+showunit($grTitleSize)
@@ -63,13 +62,13 @@ $grTitleSize: (calcTitleSize() / calcFontSize()) + rem
 
 // H1 Size -----------------------------------
 @function calc-H1()
-	$foo: calcFontSize() * $phi
+	$foo: calc-baseFS() * $phi
 	@return round($foo)
 
-$gr-H1: calc-H1() / calcFontSize() + rem
+$gr-H1: calc-H1() / calc-baseFS() + rem
 
 =gr-H1()
-	font-size: calc-H1() / calcFontSize() + rem
+	font-size: calc-H1() / calc-baseFS() + rem
 	// font-size: calc-H1() + px
 	// line-height: calc-H1() / $yoo
 	@if ($debugmode == on)
@@ -81,14 +80,14 @@ $gr-H1: calc-H1() / calcFontSize() + rem
 // Caclulated sub-headline size based on $ContentWidth.
 // -----------------------------------------------------
 @function calc-H2()
-	$foo: calcFontSize() * $sqrtphi
+	$foo: calc-baseFS() * $sqrtphi
 	@return round($foo)
 
-$gr-H2: (calc-H2() / calcFontSize()) + rem
+$gr-H2: (calc-H2() / calc-baseFS()) + rem
 
 =gr-H2()
+	font-size: (calc-H2() / calc-baseFS()) + rem
 	// font-size: calc-H2() + px
-	font-size: (calc-H2() / calcFontSize()) + rem
 	// line-height: calc-H2() / $yoo
 	@if ($debugmode == on)
 		+showunit($gr-H2)
@@ -98,31 +97,28 @@ $gr-H2: (calc-H2() / calcFontSize()) + rem
 // Caclulated sub-headline size based on $ContentWidth.
 // -----------------------------------------------------
 @function calc-H3()
-	$foo: calcFontSize() + $sqrtphi
+	$foo: calc-baseFS() + $sqrtphi
 	@return round($foo)
 
-$gr-H3: (calc-H3() / calcFontSize()) + rem
+$gr-H3: (calc-H3() / calc-baseFS()) + rem
 
 =gr-H3()
+	font-size: (calc-H3() / calc-baseFS()) + rem
 	// font-size: calc-H3() + px
-	font-size: (calc-H3() / calcFontSize()) + rem
 	// line-height: calc-H3() / $yoo
 	//	 +showunit($gr-H3)
 
 
-
-
 // Secondary (small) Text -------------------------------
 @function calcSecondaryText()
-	$foo: calcFontSize() * (1 / $sqrtphi)
+	$foo: calc-baseFS() * (1 / $sqrtphi)
 	@return round($foo)
 
-
-$smalltext: (calcSecondaryText() / calcFontSize()) + rem
+$smalltext: (calcSecondaryText() / calc-baseFS()) + rem
 
 =smalltext()
+	font-size: (calcSecondaryText() / calc-baseFS()) + rem
 	// font-size: calcSecondaryText() + px
-	font-size: (calcSecondaryText() / calcFontSize()) + rem
 	// line-height: calcSecondaryText() / $yoo
 	@if ($debugmode == on)
 		+showunit($smalltext)
