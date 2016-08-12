@@ -106,7 +106,8 @@ $gr-H3: (calc-H3() / calc-baseFS()) + rem
 	font-size: (calc-H3() / calc-baseFS()) + rem
 	// font-size: calc-H3() + px
 	// line-height: calc-H3() / $yoo
-	//	 +showunit($gr-H3)
+	@if ($debugmode == on)
+		+showunit($gr-H3)
 
 
 // Secondary (small) Text -------------------------------

@@ -1,13 +1,47 @@
 @import 'reboot'
-
+@import 'modal'
 
 // The main stylesheet contains only
 // the components used in the website.
 
 
-// +debug(*)
+.fade
+	opacity: 0
+	+transition(opacity .15s linear)
+	&.in
+		opacity: 1
+
+
+
+
+=opacity($opacity)
+	opacity: $opacity
+	// IE8 filter
+	$opacity-ie: ($opacity * 100)
+	filter: alpha(opacity=$opacity-ie)
+
+
+
+
+.modal-backdrop
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 99
+	// z-index: $zindex-modal-background
+	background-color: pink
+	// background-color: $modal-backdrop-bg
+	// Fade for backdrop
+	&.fade
+		+opacity(0)
+	&.in
+		+opacity(.5)
+
 
 nav.navbar
+	z-index: $zx-nav
 	display: block
 	background: $gray-light
 	+position(fixed, 0px, 0px, auto, 0px)
@@ -38,19 +72,19 @@ ul.nav-menu
 
 
 // Buttons ------------------------------------------
-$button-padding: 10px
-$button-font-size: $smalltext
+$button-padding: 20px
+$button-font-size: $baseFS
 $button-border-width: 0
 $button-border-radius: 2px
-$button-height: 30px
+$button-height: 40px
 
 .btn
 	// general
 	+transition(100ms)
 	+user-select(none)
 	margin: 0
-	position: relative
-	bottom: 0px
+	// position: relative
+	// bottom: 0px
 	display: inline-block
 	// vertical-align: top
 	text-overflow: ellipsis
@@ -82,7 +116,13 @@ $button-height: 30px
 	
 	// Default style
 	+button-style(transparent, $gray, white, transparent, $blue, white, transparent, $yellow, $gray)
-
+	
+	&.small
+		font-size: $smalltext
+	
+	&.big
+		font-size: $gr-H3
+	
 	&.orange
 		+button-style(transparent, $orange, white, transparent, darken($orange, 5%), white, transparent, $yellow, $gray)
 	&.green

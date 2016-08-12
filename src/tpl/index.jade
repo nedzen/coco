@@ -6,9 +6,11 @@ html(lang="en")
 		title this that
 		link(rel="stylesheet" type="text/css" href="css/coco.css")
 		//- link(href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400,400i,700" rel="stylesheet")
-		//- Jquery
 		//- script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
 		//- Latest compiled JavaScript
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+		script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+		script(src="js/app.js")
 	body
 		nav.navbar
 			ul.nav-menu
@@ -16,23 +18,73 @@ html(lang="en")
 				li: a(href="#") two
 				li: a(href="#") three
 
-		main
-			.row
-				.col.w3.sm-w4.xs-w6 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 7 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 8 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 9 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 10 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 11 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-				.col.w3.sm-w4.xs-w6 12 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
-			
-			h1.lead Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+		//- Modal
+		div(class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+			div(class="modal-dialog" role="document")
+				div(class="modal-content")
+					div(class="modal-header")
+						button(type="button" class="close" data-dismiss="modal" aria-label="Close") close
+						h4(class="modal-title" id="myModalLabel") Modal title
+					
+					div(class="modal-body")
+						p lorem ipsum dolor sit amet consec dolor sit
+					
+					div(class="modal-footer")
+						button(type="button" class="btn btn-default" data-dismiss="modal") Close
+						button(type="button" class="btn btn-primary") Save changes
 
+		main
+			//- .flex
+				//- .box
+			.row
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic1.jpg")
+					p 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic2.jpg")
+					p 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic3.jpg")
+					p 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic4.jpg")
+					p 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+			
+			.row
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic5.jpg")
+					p 5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic6.jpg")
+					p 6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic7.jpg")
+					p 7 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic8.jpg")
+					p 8 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+			
+			.row
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic4.jpg")
+					p 9 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic3.jpg")
+					p 10 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic1.jpg")
+					p 11 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				.col.w3.sm-w4.xs-w6
+					figure: img(src="img/pic7.jpg")
+					p 12 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+			
+			.lead.center
+				h1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis
+				h2 And this is how the story goes
+				div: a.btn(href="#") Click here mofo
+			
+			figure
+				img(src="img/pic1.jpg")
 			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin nisi non leo vehicula, eu feugiat erat rhoncus. Aenean placerat magna vel nibh sagittis, ut venenatis elit vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer facilisis, augue non sollicitudin finibus, risus tellus vulputate lorem, et ultrices mauris velit a massa. Nunc ex ex, hendrerit nec dignissim sed, aliquam at ex. Mauris sapien risus, facilisis vitae cursus ut, dictum et tellus. Nunc lacinia gravida accumsan.
 			
 			h1 And this is a heading one
@@ -58,6 +110,9 @@ html(lang="en")
 				li: a.btn.orange(href="#") orange
 				li: a.btn.green(href="#") green
 				//- input(type="submit" value="submit") // someone should take care of this to
+
+			//- Button trigger modal
+			button(type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal") Launch demo modal
 			
 			p
 				span.this
