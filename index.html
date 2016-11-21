@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>this that</title>
     <link rel="stylesheet" type="text/css" href="css/coco.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/lory.min.js"></script>
     <script src="js/app.js"></script>
   </head>
   <body>
@@ -17,24 +16,20 @@
         <li><a href="#">three</a></li>
       </ul>
     </nav>
-    <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" data-dismiss="modal" aria-label="Close" class="close">close</button>
-            <h4 id="myModalLabel" class="modal-title">Modal title</h4>
-          </div>
-          <div class="modal-body">
-            <p>lorem ipsum dolor sit amet consec dolor sit</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
+    <div class="slider js_slider">
+      <div class="frame js_frame">
+        <ul class="slides js_slides">
+          <li class="js_slide">1</li>
+          <li class="js_slide">2</li>
+          <li class="js_slide">3</li>
+          <li class="js_slide">4</li>
+          <li class="js_slide">5</li>
+          <li class="js_slide">6</li>
+        </ul>
       </div>
     </div>
     <main>
+      <div class="avatar"></div>
       <div class="row">
         <div class="col w3 sm-w4 xs-w6">
           <figure><img src="img/pic1.jpg"></figure>
@@ -116,5 +111,22 @@
       <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg">Launch demo modal</button>
       <p><span class="this"></span><span class="loops"></span></p>
     </main>
+    <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close">close</button>
+            <h4 id="myModalLabel" class="modal-title">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <p>lorem ipsum dolor sit amet consec dolor sit</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
