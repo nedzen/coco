@@ -5,7 +5,8 @@ The challange with is to define a set of principles to set the foundation for al
 
 #class names
 
-##state
+##states
+here
 inverse
 toggled
 switched
